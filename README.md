@@ -2,11 +2,14 @@
 
 ```
 $ git clone https://github.com/sjt88/graphApp.git
+$ cd graphApp
 $ npm install
 $ gulp
 ```
 
-If gulp isn't installed globally you might have to do so after cloning:
+point your browser to http://localhost:8080
+
+If gulp isn't installed globally you might have to do so after cloning & before running gulp:
 ```
 $ npm install -g gulp
 ```
