@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html ng-app="graphEquationsApp">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/nv.d3.min.css">
+  </head>
+  <body>
+
+  <header navbar class="container-fluid"></header>
+
+  <main class="container-fluid">
+    <section ng-controller="GraphController">
+      <!--
+        <header>
+          <h3>Mathematical Equation Graph</h3>
+        </header>
+      -->
+
+        <!-- Graph Container -->
+        <div class="panel panel-default col-xs-12 col-sm-12 col-md-9" line-chart></div>
+
+        <!-- Graph Controls -->
+        <form class="panel panel-default col-xs-12 col-sm-12 col-md-3" name="graphSettings">
+          <h3>Graph Settings</h3>
+
+          <h4>Equation Selection</h4>
+          <div class="checkbox">
+            <label><input type="checkbox" ng-model="checkboxModel.cos" ng-click="updateGraph()">Cosine</label>
+          </div>
+          <div class="checkbox">
+            <label><input type="checkbox" ng-model="checkboxModel.sin" ng-click="updateGraph()">Sine</label>
+          </div>
+
+          <h4>Axis Scale</h4>
+          <p class="bg-danger" ng-show="graphSettings.$invalid">All values must be numerical</p>
+
+          <div class="form-group col-sm-6">
+            <label for="xmin">X Min</label>
+            <input type="number" class="form-control" placeholder="-1" ng-model="axesModel.x.min" ng-change="setDomain()" required>
+          </div>
+          <div class="form-group col-sm-6">
+            <label for="xmax">X Max</label>
+            <input type="number" class="form-control" placeholder="1" ng-model="axesModel.x.max" ng-change="setDomain()" required>
+          </div>
+          <div class="form-group col-sm-6">
+            <label for="ymin">Y-Axis</label>
+            <input type="number" class="form-control" placeholder="0" ng-model="axesModel.y.min" ng-change="setDomain()" required>
+          </div>
+          <div class="form-group col-sm-6">
+            <label for="ymax">Y-Axis</label>
+            <input type="number" class="form-control" placeholder="100" ng-model="axesModel.y.max" ng-change="setDomain()" required>
+          </div>
+
+          <h4>Custom Expression</h4>
+          <div class="form-group col-sm-12">
+            <label for="custom">Y = </label>
+            <input type="text" class="form-control" placeholder="Math.random(x) * Math.sin(x/40)" ng-model="customEq">
+            <button type="button" class="btn btn-default" ng-click="parseEq()">Add Custom Expression</button>
+          </div>
+        </form>
+
+    </section>
+  </main>
+
+
+  <footer class="container-fluid"></footer>
+
+  </body>
+  <script type="text/javascript" src="assets/libs/jquery.min.js"></script>
+  <script type="text/javascript" src="assets/libs/angular.min.js"></script>
+  <script type="text/javascript" src="assets/libs/bootstrap.min.js"></script>
+  <script type="text/javascript" src="assets/libs/d3.min.js"></script>
+  <script type="text/javascript" src="assets/libs/nv.d3.min.js"></script>
+  <script type="text/javascript" src="assets/libs/jsep.min.js"></script>
+  <script type="text/javascript" src="app.js"></script>
+  <script type="text/javascript" src="components/navbarDirective.js"></script>
+  <!--<script type="text/javascript" src="components/graphDirective.js"></script>-->
+
+</html>
